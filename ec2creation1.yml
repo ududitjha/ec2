@@ -22,14 +22,14 @@
    - name: Provision a EC2 Instance
      ec2:
        key_name: piyushkey
-       region: '${REGION}'
+       region: us-east-2
        instance_type: t2.micro
        image: ami-00ab66cac3d9d671f
        wait: yes
        wait_timeout: 500
        count: 1
        instance_tags:
-         Name: '${NAME}'
+         Name: awskeen
          Owner: Piyush
        volumes:
        - device_name: /dev/xvda 
