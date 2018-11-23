@@ -21,20 +21,20 @@
           cidr_ip: 0.0.0.0/0
    - name: Provision a EC2 Instance
      ec2:
-       key_name: piyushkey
-       region: us-east-2
-       instance_type: t2.micro
-       image: ami-00ab66cac3d9d671f
+       key_name: '{{ key_name }}'
+       region: '{{ region }}'
+       instance_type: '{{ instance_type }}'
+       image: '{{ image }}'
        wait: yes
        wait_timeout: 500
-       count: 1
+       count: '{{ count }}'
        instance_tags:
-         Name: awskeen
-         Owner: Piyush
+         Name: '{{ NAME }}'
+         Owner: '{{ Owner }}'
        volumes:
-       - device_name: /dev/xvda 
-         volume_type: gp2
-         volume_size: 6
+       - device_name: '{{ device_name }}'
+         volume_type: '{{ volume_type }}'
+         volume_size: '{{ volume_size }}'
        monitoring: no
        vpc_subnet_id: subnet-c063988c
        assign_public_ip: yes
@@ -44,4 +44,3 @@
    - name: Wait for SSH to come up
      wait_for: host={{ item.public_dns_name }} port=22 delay=120 timeout=560 state=started
      with_items: '{{ec2_out.instances}}'
-
