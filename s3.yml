@@ -1,0 +1,11 @@
+--- 
+- 
+  connection: local
+  gather_facts: false
+  hosts: localhost
+  tasks: 
+    - 
+      name: "Create S3 bucket"
+      s3: 
+        bucket: "{{ bucketname }}"
+        mode: create
