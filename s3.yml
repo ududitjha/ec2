@@ -9,5 +9,5 @@
     - 
       name: "Create S3 bucket"
       s3: 
-        bucket: "{{ bucketname }}"
+        bucket: '{{ bucketname }}'
         mode: create
