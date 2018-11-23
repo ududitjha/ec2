@@ -2,12 +2,9 @@
 - hosts: localhost
   connection: local
   gather_facts: false
-  
-  vars:
-    bucketname: udittestbucket
-  tasks: 
-    - 
-      name: "Create S3 bucket"
-      s3: 
-        bucket: '{{ bucketname }}'
-        mode: create
+  tasks:
+    - name: Create an empty bucket
+      aws_s3:
+      bucket: mybucket
+      mode: create
+      permission: public-read
