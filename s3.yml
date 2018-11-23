@@ -3,6 +3,8 @@
   connection: local
   gather_facts: false
   hosts: localhost
+  vars:
+    bucketname: udittestbucket
   tasks: 
     - 
       name: "Create S3 bucket"
