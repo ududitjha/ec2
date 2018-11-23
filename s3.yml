@@ -1,10 +1,9 @@
---- 
+---
 - hosts: localhost
-  connection: local
-  gather_facts: false
   tasks:
-    - name: Create an empty bucket
+    - name: "Create S3 Bucket"
       aws_s3:
-      bucket: mybucket
-      mode: create
-      permission: public-read
+        bucket: udittestbucket
+        mode: create
+        permission: public-read
+
