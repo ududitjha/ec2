@@ -36,7 +36,7 @@
          volume_type: '{{ volume_type }}'
          volume_size: '{{ volume_size }}'
        monitoring: no
-       vpc_subnet_id: '{{ subnet-id }}'
+       vpc_subnet_id: '{{ subnet_id }}'
        assign_public_ip: yes
        group: default
      register: ec2_out
